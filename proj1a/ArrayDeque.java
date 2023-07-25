@@ -1,4 +1,4 @@
-public class ArrayDeque<T> {
+public class ArrayDeque<T> implements Deque<T>{
     private int size, begin, end;
     private T[] arr;
     public ArrayDeque(){
@@ -26,6 +26,7 @@ public class ArrayDeque<T> {
         begin = s + begin - arr.length;
         arr = temp;
     }
+    @Override
     public void addFirst(T t){
         if(begin == 0) begin = arr.length - 1;
         else begin--;
@@ -33,18 +34,24 @@ public class ArrayDeque<T> {
         arr[begin] = t;
         size++;
     }
+    @Override
     public void addLast(T t){
         if (end == arr.length) end = 0;
         if(end == begin) adjSize(arr.length * 2);
         arr[end++] = t;
         size++;
     }
+    @Override
     public boolean isEmpty(){
         return size==0;
     }
+
+    @Override
     public int size(){
         return size;
     }
+
+    @Override
     public void printDeque(){
         if(size != 0) System.out.print(arr[begin] + " ");
         else return;
@@ -54,6 +61,7 @@ public class ArrayDeque<T> {
         }
         System.out.println();
     }
+    @Override
     public T removeLast(){
         T t = arr[end];
         if(begin != end) arr[end] = null;
@@ -63,6 +71,7 @@ public class ArrayDeque<T> {
         if(size < arr.length / 4) adjSizeDec(arr.length / 2);
         return t;
     }
+    @Override
     public T removeFirst(){
         T t = arr[begin];
         if(begin != end) arr[begin] = null;
@@ -72,6 +81,7 @@ public class ArrayDeque<T> {
         if(size < arr.length / 4) adjSizeDec(arr.length / 2);
         return t;
     }
+    @Override
     public T get(int index){
 //        if(index > arr.length - 1) return null;
 //        int i = begin;

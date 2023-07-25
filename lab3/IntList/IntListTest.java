@@ -80,4 +80,8 @@ public class IntListTest {
       * to add a main method. See ArithmeticTest.java for an
       * example. */
 
+    public static void main(String... args) {
+        jh61b.junit.TestRunner.runTests("all", FlikTest.class);
+    }
+
 }
