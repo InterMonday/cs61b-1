@@ -3,6 +3,7 @@ package byog.lab5;
 import byog.TileEngine.TERenderer;
 import byog.TileEngine.TETile;
 import byog.TileEngine.Tileset;
+import javafx.util.Pair;
 
 /**
  *  Draws a world that is mostly empty except for a small region.
@@ -25,11 +26,12 @@ public class BoringWorldDemo {
         }
 
         // fills in a block 14 tiles wide by 4 tiles tall
-        for (int x = 20; x < 35; x += 1) {
-            for (int y = 5; y < 10; y += 1) {
-                world[x][y] = Tileset.WALL;
-            }
-        }
+//        for (int x = 20; x < 35; x += 1) {
+//            for (int y = 5; y < 10; y += 1) {
+//                world[x][y] = Tileset.FLOOR;
+//            }
+//        }
+        HexWorld.addHexagon(world, 3, new Pair<>(10, 20), Tileset.FLOWER);
 
         // draws the world to the screen
         ter.renderFrame(world);
